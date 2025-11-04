@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario Pro v7.3 - Gestión de Activos</title>
+
+    <meta name="theme-color" content="#6366f1"/>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="text-gray-800">
+
+    <div id="read-only-mode-overlay" class="hidden read-only-overlay">
+        </div>
+    <div id="loading-overlay" class="modal-overlay" style="z-index: 2000;">
+        </div>
+    <div id="import-progress-modal" class="modal-overlay" style="z-index: 2001;">
+        </div>
+    <div id="confirmation-modal" class="modal-overlay">
+        </div>
+    <div id="preprint-edit-modal" class="modal-overlay">
+        </div>
+    <div id="log-modal" class="modal-overlay">
+        </div>
+    <div id="qr-display-modal" class="modal-overlay">
+        </div>
+    <div id="item-details-modal" class="modal-overlay">
+        </div>
+    <div id="transfer-photo-modal" class="modal-overlay">
+        </div>
+    <div id="formato-entrada-modal" class="modal-overlay">
+        </div>
+    <div id="reassign-modal" class="modal-overlay">
+        </div>
+    <div id="area-closure-modal" class="modal-overlay">
+        </div>
+    <div id="notes-modal" class="modal-overlay">
+        </div>
+    <div id="edit-adicional-modal" class="modal-overlay">
+        </div>
+    <div id="photo-modal" class="modal-overlay">
+        </div>
+    <div id="edit-user-modal" class="modal-overlay">
+        </div>
+    <div id="qr-scanner-modal" class="modal-overlay">
+        </div>
+    <div id="item-detail-view-modal" class="modal-overlay">
+        </div>
+    <div id="user-detail-view-modal" class="modal-overlay">
+        </div>
+    <div id="adicional-detail-view-modal" class="modal-overlay">
+        </div>
+    <div id="report-view-modal" class="modal-overlay">
+        </div>
+    <div id="print-view-container" aria-hidden="true">
+        </div>
+    <div id="app-container" class="min-h-screen p-4 md:p-8 transition-all duration-300">
+        </div> 
+    <div id="layout-editor-modal" class="modal-overlay" style="z-index: 1090;">
+        </div>
+    <div id="progress-tooltip"></div>
+    <div id="toast-container" class="fixed bottom-5 right-5 z-[1001] space-y-2"></div>
+    <div id="photo-preview-popover" class="hidden fixed p-1 bg-white border border-gray-300 shadow-lg rounded-md z-[2000]">
+        <img id="photo-preview-img" src="" class="max-w-xs max-h-48 object-contain">
+    </div>
+
+
+    <script>
+        // Registrar el Service Worker para la PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js') // <-- RUTA RELATIVA
+                    .then(registration => console.log('Service Worker registrado con éxito:', registration.scope))
+                    .catch(err => console.error('Error al registrar el Service Worker:', err));
+            });
+        }
+    </script>
+    
+    <script type="module" src="main.js"></script>
+
+</body>
+</html>
