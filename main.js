@@ -946,7 +946,7 @@ function initialize() {
     });
     
     elements.log.showBtn.addEventListener('click', showLogModal);
-    elements.log.closeBtn.addEventListener('click', () () => elements.log.modal.classList.remove('show'));
+    elements.log.closeBtn.addEventListener('click', () => elements.log.modal.classList.remove('show'));
 
     elements.settings.importPhotosBtn.addEventListener('click', () => elements.settings.importPhotosInput.click());
     elements.settings.importPhotosInput.addEventListener('change', (e) => {
